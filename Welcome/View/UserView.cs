@@ -19,6 +19,7 @@ namespace Welcome.View
         {
             Console.WriteLine("Welcome");
             Console.WriteLine("User : " + _viewModel.Name);
+            Console.WriteLine("Password : " + _viewModel.Password);
             Console.WriteLine("Role : " + _viewModel.Role);
         }
 
@@ -26,5 +27,6 @@ namespace Welcome.View
         {
             throw new Exception("Error");
         }
+    
     }
 }

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome", "Welcome\Welcome.csproj", "{47E99C63-813C-4441-A68A-81D6C9C2E5BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Welcome", "Welcome\Welcome.csproj", "{47E99C63-813C-4441-A68A-81D6C9C2E5BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WelcomeExtended", "WelcomeExtended\WelcomeExtended.csproj", "{CBF81690-5212-4609-A76A-5DE90F5D99F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WelcomeExtended", "WelcomeExtended\WelcomeExtended.csproj", "{CBF81690-5212-4609-A76A-5DE90F5D99F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{C532620C-D5DE-4E7F-BFB7-BB707A8FC6D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{C532620C-D5DE-4E7F-BFB7-BB707A8FC6D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{6E8BC0F3-EB51-4124-ABEC-E06D2F23BB10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{6E8BC0F3-EB51-4124-ABEC-E06D2F23BB10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
