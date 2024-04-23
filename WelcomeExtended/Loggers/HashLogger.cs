@@ -78,10 +78,10 @@ namespace WelcomeExtended.Loggers
         {
             var message = formatter(state, exception);
 
-            // Console logging
+           
             PrintToConsole(logLevel, eventId, message);
 
-            // File logging
+           
             LogToFile(logLevel, eventId, message);
         }
 

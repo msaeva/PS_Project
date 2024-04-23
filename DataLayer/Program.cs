@@ -10,6 +10,7 @@ namespace DataLayer
         {
             using (var context = new DatabaseContext())
             {
+          
                 context.Database.EnsureCreated();
 
                 while (true)
@@ -18,8 +19,10 @@ namespace DataLayer
                     Console.WriteLine("1. View all users");
                     Console.WriteLine("2. Add a new user");
                     Console.WriteLine("3. Delete an existing user");
-                    Console.WriteLine("4. Exit");
+                    Console.WriteLine("4. Read all logs");
+                    Console.WriteLine("5. Exit");
                     Console.Write("Enter your choice: ");
+                  
 
                     if (!int.TryParse(Console.ReadLine(), out int choice))
                     {
@@ -39,6 +42,9 @@ namespace DataLayer
                             DeleteUser(context);
                             break;
                         case 4:
+                            ViewLogEntries(context);
+                            break;
+                        case 5:
                             return;
                         default:
                             Console.WriteLine("Invalid choice. Please enter a number between 1 and 4.");
@@ -80,6 +86,13 @@ namespace DataLayer
                 });
                 context.SaveChanges();
                 Console.WriteLine("User added successfully.");
+
+                context.Add<DatabaseLogEntry>(new DatabaseLogEntry() {
+                    Date = DateTime.Now,
+                    Message = $"Added user: {username}",
+
+                });
+                context.SaveChanges();
             }
 
             static void DeleteUser(DatabaseContext context)
@@ -93,13 +106,37 @@ namespace DataLayer
                     context.Users.Remove(user);
                     context.SaveChanges();
                     Console.WriteLine("User deleted successfully.");
+
+                    context.Add<DatabaseLogEntry>(new DatabaseLogEntry()
+                    {
+                        Date = DateTime.Now,
+                        Message = $"Deleted user: {username}",
+
+                    });
+                    context.SaveChanges();
                 }
                 else
                 {
                     Console.WriteLine("User not found.");
                 }
             }
+
+            static void ViewLogEntries(DatabaseContext context)
+            {
+                var logEntries = context.Logs.ToList();
+                if (logEntries.Any())
+                {
+                    Console.WriteLine("Log Entries:");
+                    foreach (var logEntry in logEntries)
+                    {
+                        Console.WriteLine($"Date: {logEntry.Date}, Message: {logEntry.Message}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No log entries found.");
+                }
+            }
         }
-    
     }
 }

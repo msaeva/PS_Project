@@ -6,11 +6,15 @@ using Welcome.Model;
 using Welcome.ViewModel;
 using Welcome.View;
 using Welcome.Others;
+using Microsoft.Extensions.Logging;
+using WelcomeExtended.Loggers;
 
 namespace WelcomeExtended
 {
     internal class Program
     {
+        static string logFilePath = "D:\\university\\PS_45_Mariya\\WelcomeExtended\\authentication_log.txt";
+        static AuthenticationLogger logger = new AuthenticationLogger(logFilePath);
         static void Main(string[] args)
         {
             try
@@ -47,8 +51,11 @@ namespace WelcomeExtended
                     if (validationMessage != "Credentials are valid")
                     {
                         Console.WriteLine(validationMessage);
+                        logger.LogError(validationMessage);
                     }
                 } while (validationMessage != "Credentials are valid");
+
+                logger.LogSuccess(username);
 
                 User foundUser = UserHelper.GetUser(userData, username, password);
                 string result = UserHelper.ToString(foundUser);

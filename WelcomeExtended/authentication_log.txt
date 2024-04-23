@@ -1,0 +1,10 @@
+﻿16.4.2024 г. 17:18:58: Error - Invalid credentials
+16.4.2024 г. 17:20:51: Error - Invalid credentials
+16.4.2024 г. 17:21:07: User 'student' logged in successfully.
+17.4.2024 г. 16:34:51: Error - Invalid credentials
+17.4.2024 г. 16:35:06: User 'student' logged in successfully.
+17.4.2024 г. 17:23:29: Error - Invalid credentials
+17.4.2024 г. 17:23:30: Error - Invalid credentials
+20.4.2024 г. 23:15:43: Error - Invalid credentials
+20.4.2024 г. 23:15:45: Error - The password cannot be empty
+20.4.2024 г. 23:15:47: Error - The password cannot be empty

@@ -15,6 +15,7 @@ namespace WelcomeExtended.Others
         public static void log(string err)
         {
             logger.LogError(err);
+        
         }
 
         public static void log2(string err)

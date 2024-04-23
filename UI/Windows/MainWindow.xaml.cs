@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Windows;
 
 namespace UI
 {
@@ -19,6 +20,13 @@ namespace UI
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void ShowLogs_Click(object sender, RoutedEventArgs e)
+        {
+
+            LogsWindow logsWindow = new LogsWindow(); 
+            logsWindow.Show();
+           
         }
     }
 }

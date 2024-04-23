@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Welcome.Others;
 
+
 namespace Welcome.Model
 {
     public class User
@@ -71,7 +72,8 @@ namespace Welcome.Model
             byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
             using (Aes encryptor = Aes.Create())
             {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes("SomeSaltValue", new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                string salt = GenerateSalt();
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(salt, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
                 encryptor.Key = pdb.GetBytes(32);
                 encryptor.IV = pdb.GetBytes(16);
                 using (MemoryStream ms = new MemoryStream())
@@ -86,7 +88,15 @@ namespace Welcome.Model
             }
             return clearText;
         }
-
+        static string GenerateSalt()
+        {
+            byte[] salt = new byte[32]; // 256 bits
+            using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
+            {
+                rngCsp.GetBytes(salt);
+            }
+            return Convert.ToBase64String(salt);
+        }
         private string Decrypt(string cipherText)
         {
             cipherText = cipherText.Replace(" ", "+");

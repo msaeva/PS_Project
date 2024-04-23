@@ -11,6 +11,8 @@ namespace DataLayer.Database
 {
     public class DatabaseContext : DbContext
     {
+        public DbSet<DatabaseUser> Users { get; set; }
+        public DbSet<DatabaseLogEntry> Logs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -22,7 +24,17 @@ namespace DataLayer.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<DatabaseLogEntry>().Property(e => e.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<DatabaseUser>().Property(e => e.Id).ValueGeneratedOnAdd();
+            
+
+            var log = new DatabaseLogEntry()
+            {
+                Id = 1,
+                Message = "message",
+                Date = DateTime.Now,
+            };
+
 
             var user = new DatabaseUser()
             {
@@ -44,9 +56,9 @@ namespace DataLayer.Database
 
             modelBuilder.Entity<DatabaseUser>().HasData(user);
             modelBuilder.Entity<DatabaseUser>().HasData(user2);
+   
         }
 
-        public DbSet<DatabaseUser> Users { get; set; }
     }
 
  }

@@ -8,6 +8,12 @@
         Title="List of all students" Height="450" Width="800" 
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <local2:StudentsList x:Name="studentsList" Padding="2" />
+
+        <local2:StudentsList x:Name="studentsList" Padding="2" Margin="0,0,0,-20" HorizontalAlignment="Center" Width="800"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="174,261,0,0" VerticalAlignment="Top"/>
+
+
+        <!-- Button to switch between Students and Logs -->
+        <!-- <Button Content="Show Logs" Click="ShowLogs_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="597,187,0,0" Height="20" Width="61"  RenderTransformOrigin="-0.862,11.862" Background="#FFAE3030"/> -->
     </Grid>
 </Window>
